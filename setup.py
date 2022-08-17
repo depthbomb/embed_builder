@@ -2,7 +2,7 @@ from pathlib import Path
 from setuptools import setup
 
 setup(
-    version="1.0.1",
+    version="1.0.2",
     name="embed_builder",
     description="Easily build Discord Embed dictionaries",
     long_description=(Path(__file__).parent / "README.md").read_text(),
