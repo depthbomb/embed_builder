@@ -1,9 +1,11 @@
+from pathlib import Path
 from setuptools import setup
 
 setup(
-    version="1.0.0",
+    version="1.0.1",
     name="embed_builder",
     description="Easily build Discord Embed dictionaries",
+    long_description=(Path(__file__).parent / "README.md").read_text(),
     author="depthbomb",
     license="MIT",
     url="https://github.com/depthbomb/embed_builder",
