@@ -7,7 +7,7 @@ This package was developed on Python 3.10.x but has not been tested on earlier v
 ## Installation
 
 ```shell
-$ pip install embed_builder
+$ pip install embed-builder
 ```
 
 ## Usage

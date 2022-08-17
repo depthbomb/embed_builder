@@ -1,6 +1,6 @@
 from datetime import datetime
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 __author__ = "depthbomb"
 
 _TITLE_CHAR_LIMIT = 256
