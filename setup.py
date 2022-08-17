@@ -6,6 +6,7 @@ setup(
     name="embed_builder",
     description="Easily build Discord Embed dictionaries",
     long_description=(Path(__file__).parent / "README.md").read_text(),
+    long_description_content_type="text/markdown",
     author="depthbomb",
     license="MIT",
     url="https://github.com/depthbomb/embed_builder",
