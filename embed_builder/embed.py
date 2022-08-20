@@ -121,7 +121,7 @@ class Embed:
 
         :param timestamp: ISO8601-formatted timestamp
         """
-        self._embed["timestamp"] = datetime.now().isoformat() if not timestamp else timestamp.isoformat()
+        self._embed["timestamp"] = datetime.utcnow().isoformat() if not timestamp else timestamp.isoformat()
         return self
 
     def set_author(self, name: str, *, url: str = None, icon_url: str = None):
