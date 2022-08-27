@@ -10,8 +10,7 @@ _AUTHOR_NAME_CHAT_LIMIT = 256
 
 
 class Embed:
-    _embed: dict
-    _field_count: int
+    __slots__ = ("_embed", "_field_count")
 
     def __init__(self):
         self._embed = {}
