@@ -1,6 +1,6 @@
 # embed_builder
 
-![PyPI](https://img.shields.io/pypi/v/embed_builder?color=0073b7&label=version&logo=python&logoColor=white&style=flat-square) ![PyPI - Downloads](https://img.shields.io/pypi/dd/embed_builder?color=0073b7&logo=python&logoColor=white&style=flat-square)
+[![PyPI](https://img.shields.io/pypi/v/embed_builder?color=0073b7&label=version&logo=python&logoColor=white&style=flat-square) ![PyPI - Downloads](https://img.shields.io/pypi/dd/embed_builder?color=0073b7&logo=python&logoColor=white&style=flat-square)](https://pypi.org/project/embed-builder/)
 
 I got tired of manually writing dictionaries to send embeds via Discord webhooks, so I made this package to do it effortlessly.
 
