@@ -20,6 +20,7 @@ from embed_builder import Embed
 embed = Embed()
 embed.set_title("Hello")
 embed.set_description("How are you?")
+embed.set_color("#ff69b4")
 my_embed = embed.build()
 
 # Or via chaining...

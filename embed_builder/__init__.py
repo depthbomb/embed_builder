@@ -39,12 +39,26 @@ class Embed:
         self._embed["description"] = description
         return self
 
-    def set_color(self, color: int):
+    def set_color(self, color: int | str):
         """
         Sets the embed color.
 
-        :param color: The embed color in decimal format
+        :param color: The embed color in decimal or hex string format
         """
+        if isinstance(color, str):
+            from re import match
+
+            if not match(r"#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})", color):
+                raise Exception("'%s' is not a valid hexadecimal color code" % color)
+
+            color = color.replace('#', '')
+
+            # Handle short color codes | #fe0 -> #ffee00
+            if len(color) == 3:
+                color = f"{color[0] * 2}{color[1] * 2}{color[2] * 2}"
+
+            color = int(color, 16)
+
         self._embed["color"] = color
         return self
 
