@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "embed-builder"
-version = "1.0.5"
+version = "1.1.0"
 description = "Easily build Discord Embed dictionaries"
 readme = "README.md"
 authors = [{ name = "depthbomb" }]
@@ -25,4 +25,4 @@ keywords = ["discord"]
 requires-python = ">=3.10"
 
 [project.urls]
-Homepage = "https://github.com/depthbomb/embed_builder"
+Repository = "https://github.com/depthbomb/embed_builder"

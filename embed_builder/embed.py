@@ -75,43 +75,27 @@ class Embed:
 
         return self
 
-    def set_image(self, url: str, *, width: int = None, height: int = None):
+    def set_image(self, url: str):
         """
         Sets the embed image.
 
         :param url: The image URL
-        :param width: The image width
-        :param height: The image height
         """
         self._embed["image"] = {
             "url": url
         }
 
-        if width:
-            self._embed["image"]["width"] = width
-
-        if height:
-            self._embed["image"]["height"] = height
-
         return self
 
-    def set_thumbnail(self, url: str, *, width: int = None, height: int = None):
+    def set_thumbnail(self, url: str):
         """
         Sets the embed thumbnail image.
 
         :param url: The thumbnail URL
-        :param width: The thumbnail width
-        :param height: The thumbnail height
         """
         self._embed["thumbnail"] = {
             "url": url
         }
-
-        if width:
-            self._embed["thumbnail"]["width"] = width
-
-        if height:
-            self._embed["thumbnail"]["height"] = height
 
         return self
 
