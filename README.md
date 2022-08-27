@@ -21,6 +21,11 @@ embed = Embed()
 embed.set_title("Hello")
 embed.set_description("How are you?")
 embed.set_color("#ff69b4")
+
+# New in 1.4.0 - Validating embed limits - https://discord.com/developers/docs/resources/channel#embed-object-embed-limits
+if not embed.is_valid():
+    raise Exception("woops! embed has exceeded Discord's limits")
+
 my_embed = embed.build()
 
 # Or via chaining...
@@ -34,6 +39,3 @@ requests.post("webhook url", json={
     "embeds": [my_embed]
 })
 ```
-
-> **Warning**
-> Discord's embed total character limit is not currently enforced through this package. Make sure your content is the correct size as you are building embeds.

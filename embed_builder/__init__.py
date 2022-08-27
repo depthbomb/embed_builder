@@ -2,6 +2,7 @@ from datetime import datetime
 
 _TITLE_CHAR_LIMIT = 256
 _DESCRIPTION_CHAR_LIMIT = 4096
+_TOTAL_CHAR_LIMIT = 6000
 _FIELD_LIMIT = 25
 _FIELD_NAME_CHAR_LIMIT = 256
 _FIELD_VALUE_CHAR_LIMIT = 1024
@@ -13,7 +14,7 @@ class Embed:
     __slots__ = ("_embed", "_field_count")
 
     def __init__(self):
-        self._embed = {}
+        self._embed = {"fields": []}
         self._field_count = 0
 
     def set_title(self, title: str):
@@ -155,9 +156,6 @@ class Embed:
         self.__validate(self._field_count < _FIELD_LIMIT, f"Field name must not exceed {_FIELD_NAME_CHAR_LIMIT}")
         self.__validate(len(value) <= _FIELD_VALUE_CHAR_LIMIT, f"Field value must not exceed {_FIELD_VALUE_CHAR_LIMIT}")
 
-        if "fields" not in self._embed:
-            self._embed["fields"] = []
-
         self._embed["fields"].append({
             "name": name,
             "value": value,
@@ -173,6 +171,26 @@ class Embed:
         Returns the embed dictionary.
         """
         return self._embed
+
+    def is_valid(self) -> bool:
+        """
+        Returns True if the total content length of all fields for this embed does not exceed Discord's limit of 6000.
+
+        Attempting to send a payload that exceeds this limit will result in a Bad Request response.
+        """
+        total_char_count = 0
+        total_char_count += len(self._embed["title"]) if "title" in self._embed else 0
+        total_char_count += len(self._embed["description"]) if "description" in self._embed else 0
+        total_char_count += len(self._embed["footer"]["text"]) if "footer" in self._embed else 0
+        total_char_count += len(self._embed["author"]["name"]) if "author" in self._embed else 0
+
+        for field in self._embed["fields"]:
+            name = field["name"]
+            value = field["value"]
+            total_char_count += len(name)
+            total_char_count += len(value)
+
+        return total_char_count <= _TOTAL_CHAR_LIMIT
 
     @staticmethod
     def __validate(expression: bool, error_msg: str, exception=Exception) -> None:
